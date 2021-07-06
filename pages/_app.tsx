@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import CommonLayout from "../components/Layout"
 import { ReactFragment } from 'react'
-function MyApp({ Component, pageProps }):ReactFragment {
+function MyApp({ Component, pageProps }) {
 
   return(
   <CommonLayout>

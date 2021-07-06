@@ -34,7 +34,7 @@ export default function BasicTextFields()  {
   const fetchData = async () => {
     setData([]);
     if(pin===""){
-      alert("fill the pin code field")
+      alert("fill the pin code field ")
       return;
     }
     let dateTo = Dater.split("-");
