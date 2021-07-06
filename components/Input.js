@@ -36,6 +36,10 @@ export default function BasicTextFields() {
   const [determine, determineset] = React.useState(false);
   const fetchData = async () => {
     setdata([]);
+    if(pin===""){
+      alert("fill the pin code field")
+      return;
+    }
     let dateTo = dater.split("-");
     console.log(dateTo);
     let actualdate = dateTo[2] + "-" + dateTo[1] + "-" + dateTo[0];
@@ -43,7 +47,6 @@ export default function BasicTextFields() {
       let res = await axios.get(
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${actualdate.toString()}`
       );
-      console.log(res.data.sessions);
       determineset(true);
 
       setdata(res.data.sessions);
