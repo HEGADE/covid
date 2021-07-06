@@ -11,7 +11,7 @@ export default function Layout({
 <head>
   <meta name="theme-color" content="rgb(0, 132, 255)" />
   <title>Nextcovid</title>
-  <meta name="description" content="web app helps you to find slots"/>
+  <meta name="description" content="web app helps you to find vaccination  slots"/>
 </head>
       <Nav/>
     
