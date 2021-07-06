@@ -1,6 +1,6 @@
 import styles from "../styles/Card.module.css";
 export const Card = ({ data }) => {
-  if(data.length===0) return <h1>No slots available</h1>
+  if(data.length===0) return <h1 style={{"display":"block","textAlign":"center"}}>No slots available</h1>
   return (
     <>
       <div className={styles.container}>

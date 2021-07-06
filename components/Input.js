@@ -35,6 +35,7 @@ export default function BasicTextFields() {
   const [data, setdata] = React.useState([]);
   const [determine, determineset] = React.useState(false);
   const fetchData = async () => {
+    setdata([])
     let dateTo = dater.split("-");
     console.log(dateTo);
     let actualdate = dateTo[2] + "-" + dateTo[1] + "-" + dateTo[0];
