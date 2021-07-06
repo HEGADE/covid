@@ -1,6 +1,6 @@
 import { ReactFragment } from "react";
 import styles from "../styles/Card.module.css";
-export const Card = ({ data }): ReactFragment => {
+export const Card = ({ data }) => {
   if (data.length === 0)
     return (
       <h1 style={{ display: "block", textAlign: "center" }}>
