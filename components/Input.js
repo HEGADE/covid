@@ -35,17 +35,21 @@ export default function BasicTextFields() {
   const [data, setdata] = React.useState([]);
   const [determine, determineset] = React.useState(false);
   const fetchData = async () => {
-    setdata([])
+    setdata([]);
     let dateTo = dater.split("-");
     console.log(dateTo);
     let actualdate = dateTo[2] + "-" + dateTo[1] + "-" + dateTo[0];
-    console.log(actualdate);
+    try {
+      let res = await axios.get(
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${actualdate.toString()}`
+      );
+      console.log(res.data.sessions);
+      determineset(true);
 
-      let res=await axios.get(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${actualdate.toString()}`)
-      console.log(res.data.sessions)
-      determineset(true)
-   
-      setdata(res.data.sessions)
+      setdata(res.data.sessions);
+    } catch (e) {
+      alert("Some error occurred ,tyr again later");
+    }
   };
   return (
     <>
@@ -81,7 +85,7 @@ export default function BasicTextFields() {
         </Button>
       </div>
 
-    {determine &&<Card data={data}/>}
+      {determine && <Card data={data} />}
     </>
   );
 }
