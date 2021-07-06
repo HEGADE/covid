@@ -49,6 +49,7 @@ export default function BasicTextFields() {
       setdata(res.data.sessions);
     } catch (e) {
       alert("Some error occurred ,tyr again later");
+      return;
     }
   };
   return (
