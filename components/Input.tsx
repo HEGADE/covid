@@ -1,8 +1,8 @@
-import React from "react";
+import React ,{ReactFragment, useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { format, compareAsc } from "date-fns";
+import DateHandler from "../helpers/time"
 import axios from "axios";
 import { Card } from "./Card";
 const useStyles = makeStyles((theme) => ({
@@ -23,33 +23,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields() {
-  let dating = new Date();
-  let year = dating.getFullYear();
-  let month = dating.getMonth();
-  let day = dating.getDate();
-  let newdate = format(new Date(year, month, day), "yyyy-MM-dd").toString();
+export default function BasicTextFields()  {
+ 
+  let newdate=DateHandler()
   const classes = useStyles();
-  const [dater, setdate] = React.useState(newdate);
-  const [pin, setpin] = React.useState("");
-  const [data, setdata] = React.useState([]);
-  const [determine, determineset] = React.useState(false);
+  const [Dater, setDate] = useState<string>(newdate);
+  const [pin, setPin] = useState<string>("");
+  const [data, setData] = useState([]);
+  const [determine, setDetermine] =useState<boolean>(false);
   const fetchData = async () => {
-    setdata([]);
+    setData([]);
     if(pin===""){
       alert("fill the pin code field")
       return;
     }
-    let dateTo = dater.split("-");
-    console.log(dateTo);
-    let actualdate = dateTo[2] + "-" + dateTo[1] + "-" + dateTo[0];
+    let dateTo = Dater.split("-");
+    let actualdate:string = dateTo[2] + "-" + dateTo[1] + "-" + dateTo[0];
     try {
       let res = await axios.get(
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${actualdate.toString()}`
       );
-      determineset(true);
+      setDetermine(true);
 
-      setdata(res.data.sessions);
+      setData(res.data.sessions);
     } catch (e) {
       alert("Some error occurred ,tyr again later");
       return;
@@ -62,12 +58,12 @@ export default function BasicTextFields() {
           id="date"
           label="Date to attend"
           type="date"
-          value={dater}
+          value={Dater}
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={(e) => setdate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
         <form className={classes.root} autoComplete="off">
           <TextField
@@ -76,7 +72,7 @@ export default function BasicTextFields() {
             required
             label="Enter PIN"
             value={pin}
-            onChange={(e) => setpin(e.target.value)}
+            onChange={(e) => setPin(e.target.value)}
           />
         </form>
         <Button

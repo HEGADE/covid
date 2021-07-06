@@ -13,32 +13,34 @@
     text-transform: capitalize;
 }
 .card_body{
- margin: 1.4rem;
+ margin: 1rem;
     border-radius: .3rem;
     padding: .5rem;
     justify-self: center;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
-    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.3),0px 2px 6px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg ,rgb(252, 192, 252),rgb(170, 245, 255));
 }
 .address{
 
     color: rgba(0, 0, 0, 0.8);
     font-size: small;
     font-weight: 600;
+    text-transform: capitalize;
     width: 50%;
 }
 .doses{
-
+color: rgb(0, 0, 0);
     margin-top: .5rem;
     display: flex;
     justify-content:space-between;
 }
 .around{
+    color: rgb(0, 0, 0);
     align-items: center;
     font-weight: 800;
     border-radius: 1000px;
-    padding: .1rem .3rem;
-    background: rgb(247, 228, 228);
+    padding: .1rem .6rem;
+    background: rgb(255, 255, 255);
 }
 .district{
     font-family: 'Mukta', sans-serif !important;

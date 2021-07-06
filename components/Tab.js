@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Input from "../components/Input"
-import {District} from "../components/covid/District"
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import Input from "../components/Input";
+import { District } from "../components/covid/District";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -37,7 +37,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `nav-tab-${index}`,
-    'aria-controls': `nav-tabpanel-${index}`,
+    "aria-controls": `nav-tabpanel-${index}`,
   };
 }
 
@@ -79,16 +79,14 @@ export default function NavTabs() {
         >
           <LinkTab label="Using pin" href="/drafts" {...a11yProps(0)} />
           <LinkTab label="State and District" href="/trash" {...a11yProps(1)} />
-        
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-      <Input/>
+        <Input />
       </TabPanel>
       <TabPanel value={value} index={1}>
-<District/>      
-</TabPanel>
-    
+        <District />
+      </TabPanel>
     </div>
   );
 }
