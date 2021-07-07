@@ -6,8 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Input from "../components/Input";
-import { District } from "../components/covid/District";
+import Input from "./Input";
+import { District } from "./covid/District";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 

@@ -1,4 +1,5 @@
 import { ReactFragment } from "react";
+
 import styles from "../styles/Card.module.css";
 export const Card = ({ data }) => {
   if (data.length === 0)
