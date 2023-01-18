@@ -14,7 +14,7 @@ export const Card = ({ data }) => {
         {data.map((data, index) => {
           if (
             data?.available_capacity_dose1 > 0 ||
-            data?.available_capacity_dose2
+            data?.available_capacity_dose2>0
           )
             return (
               <div className={styles.card_body} key={index}>
