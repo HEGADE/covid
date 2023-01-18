@@ -1,1 +1,5 @@
-## covid app for tracking slots
+## Slots checker for covid vacciantion
+
+`
+usgin this app one can check for slots using PIN code
+` 
